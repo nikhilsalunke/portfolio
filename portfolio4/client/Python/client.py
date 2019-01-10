@@ -1,8 +1,17 @@
 #Base Python client for MEng in IoT Assignment
 #consumes data from IoT Gateway
-import urllib2
+import urllib
+import numpy as np
 
-response = urllib2.urlopen('http://localhost:8080/')
-resp = response.read()
-
-print resp
+import xml.etree.ElementTree as ET
+import matplotlib.pyplot as plt
+response = urllib.request.urlopen('http://localhost:8080/')
+resp = response.read().decode()
+time=[]
+temperature=[]
+head = ET.fromstring(resp)
+for reading in head.findall('reading'):
+    time.append(reading.find('time').text)
+    temp.append(int(reading.find('temperature').text))
+plt.plot(time, temp)
+plt.show()
