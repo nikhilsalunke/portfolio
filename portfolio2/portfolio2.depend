@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1546560000 source:g:\new folder\portfolio2\main.cpp
+	<iostream>
+	<ctime>
+	<windows.h>
+
